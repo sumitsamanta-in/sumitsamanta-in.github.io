@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sumit Samanta - MBA Candidate | Mechanical Engineer | Operations & Strategy">
+    <title>Sumit Samanta | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: #151b2b;
+            --surface-hover: #1e2638;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --card-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Nav */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            background: radial-gradient(circle at 50% 50%, #15203c 0%, var(--bg-color) 70%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            color: #fff;
+        }
+
+        /* Cards Generic Style */
+        .card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-color);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: var(--surface-hover);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background-color: var(--border-color);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .company {
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .impact-list {
+            list-style: none;
+        }
+
+        .impact-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .impact-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Skills Section */
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px var(--accent-glow);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-card {
+            background-color: var(--surface-color);
+            padding: 4rem 2rem;
+            border-radius: var(--card-radius);
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            display: block;
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--text-primary);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--accent-glow);
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--surface-color);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .timeline-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">S.<span>Samanta</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Sumit Samanta</h1>
+                <h2>MBA Candidate | Mechanical Engineer | Operations & Strategy</h2>
+                <p>Driving large-scale industrial execution with data-driven decision making and strategic thinking.</p>
+                <a href="#experience" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="card">
+                    <p>Transitioning from a robust Mechanical Engineering background into an MBA at VGSoM, IIT Kharagpur, I combine technical expertise with strategic business acumen. With over 2 years of on-ground experience in large-scale industrial projects at JSW Steel and JSW Vijaynagar Metallics, I have developed a deep practical understanding of complex operations.</p>
+                    <p>My career is defined by executing EPC projects, hands-on large-scale blast furnace operations, and rigorous vendor and supply chain coordination. I am passionate about optimizing processes and driving efficiency in <strong>Operations, Supply Chain, and Consulting</strong> roles, bridging the gap between technical execution and strategic management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <!-- Job 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">JSW Vijaynagar Metallics Limited</h3>
+                                <div class="job-title">Assistant Manager</div>
+                            </div>
+                        </div>
+                        <ul class="impact-list">
+                            <li>Led a 120+ workforce, successfully improving overall productivity by 13%.</li>
+                            <li>Managed comprehensive procurement activities worth ₹310 Crore.</li>
+                            <li>Coordinated with 12+ vendors and optimized inbound logistics utilizing SAP MM.</li>
+                            <li>Scheduled and tracked 90+ complex equipment installations using advanced Excel analytics.</li>
+                            <li>Executed the successful installation of a massive 25 Lac Nm³/hr dedusting system.</li>
+                            <li>Managed the critical erection of a 1080 MT duct line with zero major safety incidents.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Job 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">JSW Steel Limited</h3>
+                                <div class="job-title">Graduate Engineer Trainee</div>
+                            </div>
+                        </div>
+                        <ul class="impact-list">
+                            <li>Verified over 60+ critical design drawings and closely monitored complex erection activities.</li>
+                            <li>Streamlined and managed vendor coordination leveraging enterprise ERP systems.</li>
+                            <li>Operated and maintained large-scale material handling systems in high-stakes blast furnace operations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Key Projects</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Mechanical Ventilator Project</h3>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">Patented & Published in Springer</p>
+                        <p>Designed and built a low-cost, portable mechanical ventilator specifically engineered for emergency clinical use. Focused on balancing critical care affordability with tangible real-world impact and rapid mechanical prototyping.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diesel Engine Pump Project</h3>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">WPIL Internship</p>
+                        <p>Actively engaged in the assembly and rigorous testing parameters of heavy-duty 220 HP industrial pumps. Assisted the quality assurance team in systematic control, documentation, and mechanical inspection protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership">
+            <div class="container">
+                <h2 class="section-title">Leadership & Initiatives</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Coordinator, Entrepreneurship Cell</h3>
+                        <p style="color: var(--accent-color); margin-bottom: 1rem;">VGSoM, IIT Kharagpur</p>
+                        <ul class="impact-list">
+                            <li>Spearheaded strategic industry collaborations tying together academia and corporate sectors.</li>
+                            <li>Managed live business projects and orchestrated large-scale entrepreneurial events.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Member, Institution Innovation Council</h3>
+                        <p style="color: var(--accent-color); margin-bottom: 1rem;">Institution Innovation Council</p>
+                        <ul class="impact-list">
+                            <li>Conducted and facilitated educational sessions for 120+ students.</li>
+                            <li>Focused instruction on design thinking, strategic innovation, and rapid prototyping workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="card">
+                    <div class="skill-category">
+                        <h3>Business & Strategy</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Operations Management</span>
+                            <span class="skill-tag">Supply Chain Optimization</span>
+                            <span class="skill-tag">Strategic Planning</span>
+                            <span class="skill-tag">Project Management (EPC)</span>
+                            <span class="skill-tag">Vendor Management</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technical Domain</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Mechanical Systems</span>
+                            <span class="skill-tag">Blast Furnace Operations</span>
+                            <span class="skill-tag">Industrial Erection</span>
+                            <span class="skill-tag">SAP MM</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Analytics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Advanced Microsoft Excel</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Enterprise ERP Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <div class="container">
+                <h2 class="section-title">Achievements & Certifications</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3 style="font-size: 1.1rem;">Best Co-Curricular Student</h3>
+                        <p>Awarded to the top student recognizing exceptional involvement (Batch of 2022).</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-size: 1.1rem;">NPTEL Medals</h3>
+                        <p>Recipient of multiple distinguished Gold and Silver medals across varied subjects.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-size: 1.1rem;">Professional Certifications</h3>
+                        <p>Completed intensive coursework from Duke University, UIUC, and Maven Analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-card">
+                    <h3>Interested in collaborating or consulting?</h3>
+                    <p>I am always open to discussing operations, strategy, and business opportunities.</p>
+                    <a href="mailto:sumit.samanta.iitkgp@gmail.com" class="contact-email">sumit.samanta.iitkgp@gmail.com</a>
+                    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                        <a href="mailto:sumit.samanta.iitkgp@gmail.com" class="btn">Send an Email</a>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sumit-samanta/" aria-label="LinkedIn" title="LinkedIn">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:sumit.samanta.iitkgp@gmail.com" aria-label="Email" title="Email">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sumit Samanta. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple JS for Mobile Menu Toggle -->
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
