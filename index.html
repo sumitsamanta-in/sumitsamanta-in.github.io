@@ -155,14 +155,22 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .logo-img {
+            filter: invert(1);
+            mix-blend-mode: multiply;
         }
 
         .nav-links {
@@ -521,10 +529,13 @@
 
     <header>
         <nav>
-            <div class="logo">S.<span>Samanta</span></div>
+            <a href="#" class="logo">
+                <img src="./logo.png" alt="Sumit Samanta" class="logo-img">
+            </a>
             <div style="display: flex; align-items: center; gap: 1.5rem;">
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#leadership">Leadership</a></li>
@@ -571,9 +582,9 @@
         <section id="hero" class="hero">
             <div class="container">
                 <h1>Sumit Samanta</h1>
-                <h2>MBA Candidate | Mechanical Engineer | Operations & Strategy</h2>
-                <p>Driving large-scale industrial execution with data-driven decision making and strategic thinking.</p>
-                <a href="#experience" class="btn">View My Work</a>
+                <h2>MBA '27 – VGSoM, IIT Kharagpur | Operations & Strategy</h2>
+                <p>Scaling industrial execution and supply chains. Formerly drove 13% productivity gains and managed ₹310 Cr+ procurement.</p>
+                <a href="#experience" class="btn">View My Impact</a>
             </div>
         </section>
 
@@ -582,14 +593,40 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="card">
-                    <p>Transitioning from a robust Mechanical Engineering background into an MBA at VGSoM, IIT
-                        Kharagpur, I combine technical expertise with strategic business acumen. With over 2 years of
-                        on-ground experience in large-scale industrial projects at JSW Steel and JSW Vijaynagar
-                        Metallics, I have developed a deep practical understanding of complex operations.</p>
-                    <p>My career is defined by executing EPC projects, hands-on large-scale blast furnace operations,
-                        and rigorous vendor and supply chain coordination. I am passionate about optimizing processes
-                        and driving efficiency in <strong>Operations, Supply Chain, and Consulting</strong> roles,
-                        bridging the gap between technical execution and strategic management.</p>
+                    <ul class="impact-list" style="margin-left: 0;">
+                        <li><strong>Background:</strong> MBA Candidate at VGSoM, IIT Kharagpur with a B.Tech in Mechanical Engineering.</li>
+                        <li><strong>Experience:</strong> 2+ years of on-ground execution in EPC projects and blast furnace operations at <strong>JSW Steel</strong> and <strong>JSW Vijaynagar</strong>.</li>
+                        <li><strong>Impact at Scale:</strong> Managed a 120+ workforce and coordinated ₹310 Cr in project procurement.</li>
+                        <li><strong>Current Work:</strong> Driving growth as a Sales & Marketing Project Intern at <strong>Roha Precision</strong> and Live Project Intern at <strong>1 Vendor Platform</strong>.</li>
+                        <li><strong>Career Interest:</strong> Passionate about bridging technical execution with strategic management in <strong>Operations, Supply Chain, and Consulting</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">VGSoM, IIT Kharagpur</h3>
+                                <div class="job-title">Master of Business Administration (MBA)</div>
+                            </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">2025–2027</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">Maulana Abul Kalam Azad University of Technology (WBUT)</h3>
+                                <div class="job-title">Bachelor of Technology in Mechanical Engineering</div>
+                            </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">2018–2022</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -599,40 +636,66 @@
             <div class="container">
                 <h2 class="section-title">Professional Experience</h2>
                 <div class="timeline">
-                    <!-- Job 1 -->
+                    <!-- Current Job 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">1 Vendor Platform</h3>
+                                <div class="job-title">Live Project Intern</div>
+                            </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">Jan 2025 - Present</span>
+                        </div>
+                        <ul class="impact-list">
+                            <li>Analyzing procurement lifecycles to streamline vendor onboarding and management workflows.</li>
+                            <li>Conducting market research on supply chain optimization within B2B SaaS platforms.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Current Job 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="company">Roha Precision</h3>
+                                <div class="job-title">Sales & Marketing Project Intern</div>
+                            </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">Dec 2025 - Present</span>
+                        </div>
+                        <ul class="impact-list">
+                            <li>Formulating data-driven B2B client outreach strategies to expand market penetration.</li>
+                            <li>Evaluating sales funnels and optimizing lead generation for precision manufacturing solutions.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 3 -->
                     <div class="timeline-item">
                         <div class="timeline-header">
                             <div>
                                 <h3 class="company">JSW Vijaynagar Metallics Limited</h3>
-                                <div class="job-title">Assistant Manager</div>
+                                <div class="job-title">Assistant Manager Projects</div>
                             </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">July 2023 - Aug 2024</span>
                         </div>
                         <ul class="impact-list">
-                            <li>Led a 120+ workforce, successfully improving overall productivity by 13%.</li>
-                            <li>Managed comprehensive procurement activities worth ₹310 Crore.</li>
-                            <li>Coordinated with 12+ vendors and optimized inbound logistics utilizing SAP MM.</li>
-                            <li>Scheduled and tracked 90+ complex equipment installations using advanced Excel
-                                analytics.</li>
-                            <li>Executed the successful installation of a massive 25 Lac Nm³/hr dedusting system.</li>
-                            <li>Managed the critical erection of a 1080 MT duct line with zero major safety incidents.
-                            </li>
+                            <li>Directed a <strong>120+ workforce</strong>, boosting site productivity by <strong>13%</strong> through optimized task allocation.</li>
+                            <li>Executed procurement and inbound logistics for materials worth <strong>₹310 Crore</strong> leveraging SAP MM.</li>
+                            <li>Scheduled <strong>90+ complex equipment installations</strong> using advanced Excel analytics to minimize downtime.</li>
+                            <li>Delivered a <strong>25 Lac Nm³/hr</strong> dedusting system and a <strong>1080 MT</strong> duct line with zero major safety incidents.</li>
                         </ul>
                     </div>
-
-                    <!-- Job 2 -->
+                    
+                    <!-- Job 4 -->
                     <div class="timeline-item">
                         <div class="timeline-header">
                             <div>
                                 <h3 class="company">JSW Steel Limited</h3>
                                 <div class="job-title">Graduate Engineer Trainee</div>
                             </div>
+                            <span style="color: var(--text-secondary); font-weight: 500;">July 2022 - June 2023</span>
                         </div>
                         <ul class="impact-list">
-                            <li>Verified over 60+ critical design drawings and closely monitored complex erection
-                                activities.</li>
-                            <li>Streamlined and managed vendor coordination leveraging enterprise ERP systems.</li>
-                            <li>Operated and maintained large-scale material handling systems in high-stakes blast
-                                furnace operations.</li>
+                            <li>Validated <strong>60+ design drawings</strong>, ensuring high-fidelity mechanical erection and strict project compliance.</li>
+                            <li>Streamlined vendor coordination and optimized inventory tracking using enterprise ERP platforms.</li>
+                            <li>Spearheaded large-scale material handling operations within the high-stakes blast furnace division.</li>
                         </ul>
                     </div>
                 </div>
@@ -642,23 +705,21 @@
         <!-- Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Key Projects</h2>
+                <h2 class="section-title">Key Case Studies</h2>
                 <div class="grid-2">
                     <div class="card">
-                        <h3>Mechanical Ventilator Project</h3>
-                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">Patented &
-                            Published in Springer</p>
-                        <p>Designed and built a low-cost, portable mechanical ventilator specifically engineered for
-                            emergency clinical use. Focused on balancing critical care affordability with tangible
-                            real-world impact and rapid mechanical prototyping.</p>
+                        <h3>Mechanical Ventilator Initiative</h3>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">Patented (India) | Springer Published</p>
+                        <p><strong>Problem:</strong> Critical shortage of affordable emergency clinical respiratory care devices.</p>
+                        <p><strong>Action:</strong> Designed and rapid-prototyped a portable, low-cost mechanical ventilator focusing on ease of manufacturing and reliability.</p>
+                        <p><strong>Impact:</strong> Secured an Indian patent and published findings in Springer; demonstrated viability for scalable emergency response.</p>
                     </div>
                     <div class="card">
-                        <h3>Diesel Engine Pump Project</h3>
-                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">WPIL Internship
-                        </p>
-                        <p>Actively engaged in the assembly and rigorous testing parameters of heavy-duty 220 HP
-                            industrial pumps. Assisted the quality assurance team in systematic control, documentation,
-                            and mechanical inspection protocols.</p>
+                        <h3>Diesel Engine Pump Optimization</h3>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">WPIL Internship</p>
+                        <p><strong>Problem:</strong> Inconsistencies in the assembly and quality testing of heavy-duty industrial pumps.</p>
+                        <p><strong>Action:</strong> Systematized testing parameters, documentation protocols, and mechanical inspections for 220 HP pumps.</p>
+                        <p><strong>Impact:</strong> Enhanced rigorous quality assurance workflows, significantly improving batch reliability prior to dispatch.</p>
                     </div>
                 </div>
             </div>
@@ -673,18 +734,16 @@
                         <h3>Coordinator, Entrepreneurship Cell</h3>
                         <p style="color: var(--accent-color); margin-bottom: 1rem;">VGSoM, IIT Kharagpur</p>
                         <ul class="impact-list">
-                            <li>Spearheaded strategic industry collaborations tying together academia and corporate
-                                sectors.</li>
-                            <li>Managed live business projects and orchestrated large-scale entrepreneurial events.</li>
+                            <li>Spearheaded corporate collaborations, managing strategic partnerships and live business project programs.</li>
+                            <li>Orchestrated flagship entrepreneurial events, driving participation scaling to hundreds of students and professionals.</li>
                         </ul>
                     </div>
                     <div class="card">
                         <h3>Member, Institution Innovation Council</h3>
                         <p style="color: var(--accent-color); margin-bottom: 1rem;">Institution Innovation Council</p>
                         <ul class="impact-list">
-                            <li>Conducted and facilitated educational sessions for 120+ students.</li>
-                            <li>Focused instruction on design thinking, strategic innovation, and rapid prototyping
-                                workflows.</li>
+                            <li>Designed and facilitated intensive design thinking workshops, upskilling an interactive cohort of <strong>120+ students</strong>.</li>
+                            <li>Fostered rapid prototyping frameworks, resulting in tangible student-led technological ventures.</li>
                         </ul>
                     </div>
                 </div>
@@ -697,30 +756,33 @@
                 <h2 class="section-title">Skills & Expertise</h2>
                 <div class="card">
                     <div class="skill-category">
-                        <h3>Business & Strategy</h3>
+                        <h3>Operations & Supply Chain</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Operations Management</span>
-                            <span class="skill-tag">Supply Chain Optimization</span>
-                            <span class="skill-tag">Strategic Planning</span>
-                            <span class="skill-tag">Project Management (EPC)</span>
+                            <span class="skill-tag">Procurement</span>
                             <span class="skill-tag">Vendor Management</span>
+                            <span class="skill-tag">Project Management (EPC)</span>
+                            <span class="skill-tag">Sales Strategy</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Technical Domain</h3>
+                        <h3>Analytics & Methodologies</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Mechanical Systems</span>
-                            <span class="skill-tag">Blast Furnace Operations</span>
-                            <span class="skill-tag">Industrial Erection</span>
-                            <span class="skill-tag">SAP MM</span>
+                            <span class="skill-tag">Data-Driven Decision Making</span>
+                            <span class="skill-tag">Market Research</span>
+                            <span class="skill-tag">B2B Strategy</span>
+                            <span class="skill-tag">Process Optimization</span>
+                            <span class="skill-tag">Lean Six Sigma Green Belt</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Tools & Analytics</h3>
+                        <h3>Tools & Enterprise Systems</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Advanced Microsoft Excel</span>
+                            <span class="skill-tag">Advanced Excel</span>
                             <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Enterprise ERP Systems</span>
+                            <span class="skill-tag">SAP MM</span>
+                            <span class="skill-tag">Solidworks</span>
+                            <span class="skill-tag">Fusion 360</span>
                         </div>
                     </div>
                 </div>
@@ -734,15 +796,15 @@
                 <div class="grid-3">
                     <div class="card">
                         <h3 style="font-size: 1.1rem;">Best Co-Curricular Student</h3>
-                        <p>Awarded to the top student recognizing exceptional involvement (Batch of 2022).</p>
+                        <p>Awarded to the top student of the 2022 batch, emphasizing exceptional multi-disciplinary involvement and leadership excellence.</p>
                     </div>
                     <div class="card">
-                        <h3 style="font-size: 1.1rem;">NPTEL Medals</h3>
-                        <p>Recipient of multiple distinguished Gold and Silver medals across varied subjects.</p>
+                        <h3 style="font-size: 1.1rem;">NPTEL Gold & Silver Medals</h3>
+                        <p>Ranked in the top percentiles nationwide, securing multiple distinguished medals across diverse technical and analytical subjects.</p>
                     </div>
                     <div class="card">
-                        <h3 style="font-size: 1.1rem;">Professional Certifications</h3>
-                        <p>Completed intensive coursework from Duke University, UIUC, and Maven Analytics.</p>
+                        <h3 style="font-size: 1.1rem;">Global Certifications</h3>
+                        <p>Upskilled in advanced analytics and strategy via rigorous coursework from Duke University, UIUC, and Maven Analytics.</p>
                     </div>
                 </div>
             </div>
@@ -753,8 +815,8 @@
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-card">
-                    <h3>Interested in collaborating or consulting?</h3>
-                    <p>I am always open to discussing operations, strategy, and business opportunities.</p>
+                    <h3>Open to opportunities in Operations, Supply Chain, and Consulting</h3>
+                    <p>Interested in collaborating or consulting? I am always open to discussing operations, strategy, and business opportunities.</p>
                     <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
                         <a href="mailto:sumit.samanta.iitkgp@gmail.com" class="btn">Send an Email</a>
                     </div>
