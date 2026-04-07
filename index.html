@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sumit Samanta - MBA Candidate | Mechanical Engineer | Operations & Strategy">
     <title>Sumit Samanta | Portfolio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -23,6 +25,27 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --card-radius: 16px;
             --transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --surface-hover: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-color: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.3);
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
         }
 
         * {
@@ -44,7 +67,12 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
@@ -167,7 +195,7 @@
             justify-content: center;
             text-align: center;
             padding-top: 80px;
-            background: radial-gradient(circle at 50% 50%, #15203c 0%, var(--bg-color) 70%);
+            background: transparent;
         }
 
         .hero h1 {
@@ -175,7 +203,7 @@
             font-weight: 700;
             letter-spacing: -1px;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -236,7 +264,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             background-color: var(--surface-hover);
             border-color: rgba(59, 130, 246, 0.3);
         }
@@ -337,7 +365,7 @@
         .skill-category {
             margin-bottom: 2rem;
         }
-        
+
         .skill-category h3 {
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
@@ -440,12 +468,16 @@
             .hero h1 {
                 font-size: 3rem;
             }
+
             .hero h2 {
                 font-size: 1.2rem;
             }
-            .grid-2, .grid-3 {
+
+            .grid-2,
+            .grid-3 {
                 grid-template-columns: 1fr;
             }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -458,35 +490,69 @@
                 text-align: center;
                 border-bottom: 1px solid var(--border-color);
             }
+
             .nav-links.active {
                 display: flex;
             }
+
             .menu-toggle {
                 display: flex;
             }
+
             .timeline-header {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
+    <canvas id="bg-canvas"></canvas>
 
     <header>
         <nav>
             <div class="logo">S.<span>Samanta</span></div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Theme"
+                    style="background:none; border:none; color:var(--text-primary); cursor:pointer; font-size:1.2rem; display:flex; align-items:center;">
+                    <svg class="icon moon-icon" viewBox="0 0 24 24" style="width:24px; height:24px; display:block;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="icon sun-icon" viewBox="0 0 24 24" style="width:24px; height:24px; display:none;">
+                        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#skills">Skills</a></li>
-            </ul>
         </nav>
     </header>
 
@@ -495,7 +561,7 @@
         <section id="hero" class="hero">
             <div class="container">
                 <h1>Sumit Samanta</h1>
-                <h2>MBA'27- VGSoM, IIT Kharagpur | Mechanical Engineer | Operations & Strategy</h2>
+                <h2>MBA Candidate | Mechanical Engineer | Operations & Strategy</h2>
                 <p>Driving large-scale industrial execution with data-driven decision making and strategic thinking.</p>
                 <a href="#experience" class="btn">View My Work</a>
             </div>
@@ -506,8 +572,14 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="card">
-                    <p>Transitioning from a robust Mechanical Engineering background into an MBA at VGSoM, IIT Kharagpur, I combine technical expertise with strategic business acumen. With over 2 years of on-ground experience in large-scale industrial projects at JSW Steel and JSW Vijaynagar Metallics, I have developed a deep practical understanding of complex operations.</p>
-                    <p>My career is defined by executing EPC projects, hands-on large-scale blast furnace operations, and rigorous vendor and supply chain coordination. I am passionate about optimizing processes and driving efficiency in <strong>Operations, Supply Chain, and Consulting</strong> roles, bridging the gap between technical execution and strategic management.</p>
+                    <p>Transitioning from a robust Mechanical Engineering background into an MBA at VGSoM, IIT
+                        Kharagpur, I combine technical expertise with strategic business acumen. With over 2 years of
+                        on-ground experience in large-scale industrial projects at JSW Steel and JSW Vijaynagar
+                        Metallics, I have developed a deep practical understanding of complex operations.</p>
+                    <p>My career is defined by executing EPC projects, hands-on large-scale blast furnace operations,
+                        and rigorous vendor and supply chain coordination. I am passionate about optimizing processes
+                        and driving efficiency in <strong>Operations, Supply Chain, and Consulting</strong> roles,
+                        bridging the gap between technical execution and strategic management.</p>
                 </div>
             </div>
         </section>
@@ -529,12 +601,14 @@
                             <li>Led a 120+ workforce, successfully improving overall productivity by 13%.</li>
                             <li>Managed comprehensive procurement activities worth ₹310 Crore.</li>
                             <li>Coordinated with 12+ vendors and optimized inbound logistics utilizing SAP MM.</li>
-                            <li>Scheduled and tracked 90+ complex equipment installations using advanced Excel analytics.</li>
+                            <li>Scheduled and tracked 90+ complex equipment installations using advanced Excel
+                                analytics.</li>
                             <li>Executed the successful installation of a massive 25 Lac Nm³/hr dedusting system.</li>
-                            <li>Managed the critical erection of a 1080 MT duct line with zero major safety incidents.</li>
+                            <li>Managed the critical erection of a 1080 MT duct line with zero major safety incidents.
+                            </li>
                         </ul>
                     </div>
-                    
+
                     <!-- Job 2 -->
                     <div class="timeline-item">
                         <div class="timeline-header">
@@ -544,9 +618,11 @@
                             </div>
                         </div>
                         <ul class="impact-list">
-                            <li>Verified over 60+ critical design drawings and closely monitored complex erection activities.</li>
+                            <li>Verified over 60+ critical design drawings and closely monitored complex erection
+                                activities.</li>
                             <li>Streamlined and managed vendor coordination leveraging enterprise ERP systems.</li>
-                            <li>Operated and maintained large-scale material handling systems in high-stakes blast furnace operations.</li>
+                            <li>Operated and maintained large-scale material handling systems in high-stakes blast
+                                furnace operations.</li>
                         </ul>
                     </div>
                 </div>
@@ -560,13 +636,19 @@
                 <div class="grid-2">
                     <div class="card">
                         <h3>Mechanical Ventilator Project</h3>
-                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">Patented & Published in Springer</p>
-                        <p>Designed and built a low-cost, portable mechanical ventilator specifically engineered for emergency clinical use. Focused on balancing critical care affordability with tangible real-world impact and rapid mechanical prototyping.</p>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">Patented &
+                            Published in Springer</p>
+                        <p>Designed and built a low-cost, portable mechanical ventilator specifically engineered for
+                            emergency clinical use. Focused on balancing critical care affordability with tangible
+                            real-world impact and rapid mechanical prototyping.</p>
                     </div>
                     <div class="card">
                         <h3>Diesel Engine Pump Project</h3>
-                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">WPIL Internship</p>
-                        <p>Actively engaged in the assembly and rigorous testing parameters of heavy-duty 220 HP industrial pumps. Assisted the quality assurance team in systematic control, documentation, and mechanical inspection protocols.</p>
+                        <p style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;">WPIL Internship
+                        </p>
+                        <p>Actively engaged in the assembly and rigorous testing parameters of heavy-duty 220 HP
+                            industrial pumps. Assisted the quality assurance team in systematic control, documentation,
+                            and mechanical inspection protocols.</p>
                     </div>
                 </div>
             </div>
@@ -581,7 +663,8 @@
                         <h3>Coordinator, Entrepreneurship Cell</h3>
                         <p style="color: var(--accent-color); margin-bottom: 1rem;">VGSoM, IIT Kharagpur</p>
                         <ul class="impact-list">
-                            <li>Spearheaded strategic industry collaborations tying together academia and corporate sectors.</li>
+                            <li>Spearheaded strategic industry collaborations tying together academia and corporate
+                                sectors.</li>
                             <li>Managed live business projects and orchestrated large-scale entrepreneurial events.</li>
                         </ul>
                     </div>
@@ -590,7 +673,8 @@
                         <p style="color: var(--accent-color); margin-bottom: 1rem;">Institution Innovation Council</p>
                         <ul class="impact-list">
                             <li>Conducted and facilitated educational sessions for 120+ students.</li>
-                            <li>Focused instruction on design thinking, strategic innovation, and rapid prototyping workflows.</li>
+                            <li>Focused instruction on design thinking, strategic innovation, and rapid prototyping
+                                workflows.</li>
                         </ul>
                     </div>
                 </div>
@@ -655,26 +739,27 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" >
+        <section id="contact">
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-card">
                     <h3>Interested in collaborating or consulting?</h3>
                     <p>I am always open to discussing operations, strategy, and business opportunities.</p>
-                    <!-- a href="mailto:sumit.samanta.iitkgp@gmail.com" class="contact-email">sumit.samanta.iitkgp@gmail.com</a -->
                     <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
                         <a href="mailto:sumit.samanta.iitkgp@gmail.com" class="btn">Send an Email</a>
                     </div>
-                    
+
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/sumit-samanta/" aria-label="LinkedIn" title="LinkedIn">
                             <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                             </svg>
                         </a>
                         <a href="mailto:sumit.samanta.iitkgp@gmail.com" aria-label="Email" title="Email">
                             <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                                <path
+                                    d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
                             </svg>
                         </a>
                     </div>
@@ -705,6 +790,126 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.querySelector('.moon-icon');
+        const sunIcon = document.querySelector('.sun-icon');
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            }
+        });
+
+        // Interactive Background Canvas Logic
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
+
+        function initCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            particles = [];
+
+            const numParticles = Math.min(Math.floor((width * height) / 10000), 80);
+            for (let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    radius: Math.random() * 1.5 + 0.5
+                });
+            }
+        }
+
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        window.addEventListener('resize', initCanvas);
+
+        function drawCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            let isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            let particleColor = isLight ? 'rgba(37, 99, 235, 0.4)' : 'rgba(59, 130, 246, 0.4)';
+            let lineColor = isLight ? 'rgba(37, 99, 235, ' : 'rgba(59, 130, 246, ';
+
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = particleColor;
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = lineColor + (1 - dist / 120) * 0.15 + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = p.x - mouse.x;
+                    let dy = p.y - mouse.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = lineColor + (1 - dist / 150) * 0.3 + ')';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(drawCanvas);
+        }
+
+        initCanvas();
+        drawCanvas();
     </script>
 </body>
+
 </html>
